@@ -18,6 +18,7 @@ import logging
 from typing import List, Dict, Tuple, Any, Optional
 from gap_analysis import render_gap_analysis_page
 from analytics import render_analytics_page
+from quality_page import render_quality_page
 from config import Config
 from utils import count_techniques, create_cache_key, sanitize_dataframe
 from validators import validate_uploaded_csv, validate_api_key
@@ -918,8 +919,8 @@ with st.sidebar:
     
     selected = option_menu(
         "Navigation",
-        ["Home", "Results", "Analytics", "Gap Analysis", "Suggestions", "Export"],
-        icons=['house', 'table', 'graph-up', 'bullseye', 'search', 'box-arrow-down'],
+        ["Home", "Results", "Analytics", "Gap Analysis", "Data Quality", "Suggestions", "Export"],
+        icons=['house', 'table', 'graph-up', 'bullseye', 'clipboard-check', 'search', 'box-arrow-down'],
         menu_icon="list",
         default_index=0,
     )
@@ -1201,6 +1202,10 @@ elif st.session_state.page == "analytics":
 # GAP ANALYSIS PAGE
 elif st.session_state.page == "gap analysis":
     render_gap_analysis_page(mitre_techniques)
+
+# DATA QUALITY PAGE
+elif st.session_state.page == "data quality":
+    render_quality_page()
 
 # SUGGESTIONS PAGE
 elif st.session_state.page == "suggestions":
