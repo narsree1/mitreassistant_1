@@ -919,8 +919,8 @@ with st.sidebar:
     
     selected = option_menu(
         "Navigation",
-        ["Home", "Results", "Analytics", "Gap Analysis", "Data Quality", "Suggestions", "Export"],
-        icons=['house', 'table', 'graph-up', 'bullseye', 'clipboard-check', 'search', 'box-arrow-down'],
+        ["Home", "Results", "Analytics", "Gap Analysis", "Suggestions", "Export"],
+        icons=['house', 'table', 'graph-up', 'bullseye', 'search', 'box-arrow-down'],
         menu_icon="list",
         default_index=0,
     )
@@ -1202,10 +1202,6 @@ elif st.session_state.page == "analytics":
 # GAP ANALYSIS PAGE
 elif st.session_state.page == "gap analysis":
     render_gap_analysis_page(mitre_techniques)
-
-# DATA QUALITY PAGE
-elif st.session_state.page == "data quality":
-    render_quality_page()
 
 # SUGGESTIONS PAGE
 elif st.session_state.page == "suggestions":
